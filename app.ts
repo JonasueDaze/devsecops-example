@@ -16,10 +16,10 @@ app.get("/", (req: Request, res: Response) => {
 
 app.get("/cliente", async (req: Request, res: Response) => {
   try {
-    /*const result = await pg.raw(
+    const result = await pg.raw(
       `SELECT * FROM clientes WHERE id = ${req.query.id}`,
-    );*/
-    const result = pg("clientes").where("id", req.query.id);
+    );
+    // const result = pg("clientes").where("id", req.query.id);
     return res.json(result.rows);
   } catch (err) {
     res.json(err);
